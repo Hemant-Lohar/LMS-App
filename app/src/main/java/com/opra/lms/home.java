@@ -16,7 +16,7 @@ public class home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
         NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
         NavController navController = navHostFragment.getNavController();
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(R.id.mycourse,R.id.explore,R.id.profile).build();
