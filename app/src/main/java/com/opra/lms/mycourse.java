@@ -1,5 +1,6 @@
 package com.opra.lms;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +61,47 @@ public class mycourse extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_mycourse, container, false);
+        View view = inflater.inflate(R.layout.fragment_mycourse, container, false);
+        Button pyt=(Button)view.findViewById(R.id.button14);
+        pyt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),session.class);
+                startActivity(i);
+            }
+        });
+        Button ml=(Button)view.findViewById(R.id.button16);
+        ml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),session.class);
+                startActivity(i);
+            }
+        });
+        Button ai=(Button)view.findViewById(R.id.button17);
+        ai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),session.class);
+                startActivity(i);
+            }
+        });
+        Button cs=(Button)view.findViewById(R.id.button18);
+        cs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),session.class);
+                startActivity(i);
+            }
+        });
+        Button cc=(Button)view.findViewById(R.id.button19);
+        cc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(),session.class);
+                startActivity(i);
+            }
+        });
+        return view;
     }
 }
