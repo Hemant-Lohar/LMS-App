@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lms_nav"
+    app:startDestination="@id/mycourse">
+
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.opra.lms.profile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/explore"
+        android:name="com.opra.lms.explore"
+        android:label="fragment_explore"
+        tools:layout="@layout/fragment_explore" />
+    <fragment
+        android:id="@+id/mycourse"
+        android:name="com.opra.lms.mycourse"
+        android:label="fragment_mycourse"
+        tools:layout="@layout/fragment_mycourse" />
+</navigation>
