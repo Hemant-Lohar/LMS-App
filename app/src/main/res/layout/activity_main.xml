@@ -16,7 +16,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.057"
+        android:fontFamily="@font/poppins_bold"
+        />
 
     <Button
         android:id="@+id/btn_signup"
@@ -30,7 +32,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_signin"
         app:layout_constraintHorizontal_bias="0.105"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:fontFamily="@font/poppins_semibold"/>
 
     <Button
         android:id="@+id/btn_signin"
@@ -42,31 +45,34 @@
         android:text="Sign In"
         android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/poppins_semibold"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
-        android:text="title_text"
+        android:text="@string/title_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appname" />
+        app:layout_constraintTop_toBottomOf="@+id/appname"
+        android:fontFamily="@font/poppins_semibold"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="subtitle_text"
+        android:text="@string/subtitle_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:fontFamily="@font/poppins_regular"/>
 
     <ImageView
         android:id="@+id/imageView2"

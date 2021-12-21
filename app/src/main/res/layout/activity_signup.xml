@@ -14,7 +14,8 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/textbox" />
+        app:srcCompat="@drawable/textbox"
+        />
 
     <ImageView
         android:id="@+id/textbox_password"
@@ -30,21 +31,21 @@
 
     <TextView
         android:id="@+id/txt_create"
-        android:layout_width="252dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="116dp"
-        android:fontFamily="sans-serif-medium"
+        android:layout_width="333dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="124dp"
+        android:fontFamily="@font/poppins_bold"
         android:text="@string/create"
         android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/textbox_username"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SmallSp" />
 
     <ImageView
-        android:id="@+id/signin_backarrow"
+        android:id="@+id/signup_backarrow"
         android:layout_width="18dp"
         android:layout_height="21dp"
         android:layout_marginTop="10dp"
@@ -60,6 +61,7 @@
         android:id="@+id/btn_reg"
         android:layout_width="338dp"
         android:layout_height="60dp"
+        android:fontFamily="@font/poppins_semibold"
         android:text="Create Account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,8 +75,10 @@
         android:layout_width="303dp"
         android:layout_height="43dp"
         android:ems="10"
+        android:fontFamily="@font/poppins_regular"
         android:hint="@string/username"
         android:inputType="textPersonName"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textbox_username"
         app:layout_constraintEnd_toEndOf="@+id/textbox_username"
         app:layout_constraintStart_toStartOf="@+id/textbox_username"
@@ -85,8 +89,10 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:ems="10"
+        android:fontFamily="@font/poppins_regular"
         android:hint="@string/password"
         android:inputType="textPassword"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/textbox_password"
         app:layout_constraintEnd_toEndOf="@+id/textbox_password"
         app:layout_constraintStart_toStartOf="@+id/textbox_password"
@@ -101,6 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_reg"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.377"
+        android:fontFamily="@font/poppins_regular"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
