@@ -3,12 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Opra/Project/app/src/main/res/drawable/custom_button_2.xml" value="0.2703125" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_main.xml" value="0.24094202898550723" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_sessionlist.xml" value="0.24094202898550723" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_signin.xml" value="0.24547101449275363" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_signup.xml" value="0.264" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/fragment_profile.xml" value="0.4" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/drawable/ic_mycourse.xml" value="0.2703125" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/drawable/ic_profile.xml" value="0.2703125" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_session.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_sessionlist.xml" value="0.24817518248175183" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/fragment_explore.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/fragment_mycourse.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/fragment_mycourses.xml" value="0.1793478260869565" />
@@ -17,7 +22,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

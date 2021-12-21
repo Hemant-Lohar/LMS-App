@@ -18,13 +18,25 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
-        Button yourButton = (Button) findViewById(R.id.btn_signup);
 
-        yourButton.setOnClickListener(new View.OnClickListener(){
+        setContentView(R.layout.activity_main);
+
+
+        Button signUpButton = (Button) findViewById(R.id.btn_signup);
+        Button signInButton = (Button) findViewById(R.id.btn_signin);
+
+        signUpButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(MainActivity.this, home.class));
+                startActivity(new Intent(MainActivity.this, signup.class));
+
+            }
+        });
+
+        signInButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                startActivity(new Intent(MainActivity.this, signin.class));
 
             }
         });
