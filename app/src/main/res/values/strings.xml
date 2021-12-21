@@ -5,5 +5,14 @@
 
     <string name="title_text">Title</string>
     <string name="subtitle_text">Subtitle</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="create">Create Account</string>
+    <string name="login">Login</string>
+    <string name="new_account">New Here ? Create Account</string>
+    <string name="have_account">Already Have an Account ? Login</string>
+
+
+
 
 </resources>
