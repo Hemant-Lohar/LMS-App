@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_login.xml" value="0.24547101449275363" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_signin.xml" value="0.24547101449275363" />
+        <entry key="..\:/Opra/Project/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/drawable/ic_mycourse.xml" value="0.2703125" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/drawable/ic_profile.xml" value="0.2703125" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/activity_session.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/fragment_explore.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/fragment_mycourse.xml" value="0.1793478260869565" />
         <entry key="..\:/Users/Sangram/AndroidStudioProjects/LMS-App/app/src/main/res/layout/fragment_mycourses.xml" value="0.1793478260869565" />
