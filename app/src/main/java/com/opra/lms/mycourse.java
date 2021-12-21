@@ -66,7 +66,7 @@ public class mycourse extends Fragment {
         pyt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),session.class);
+                Intent i = new Intent(getActivity(),sessionlist.class);
                 startActivity(i);
             }
         });
@@ -74,7 +74,7 @@ public class mycourse extends Fragment {
         ml.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),session.class);
+                Intent i = new Intent(getActivity(),sessionlist.class);
                 startActivity(i);
             }
         });
@@ -82,7 +82,7 @@ public class mycourse extends Fragment {
         ai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),session.class);
+                Intent i = new Intent(getActivity(),sessionlist.class);
                 startActivity(i);
             }
         });
@@ -90,7 +90,7 @@ public class mycourse extends Fragment {
         cs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),session.class);
+                Intent i = new Intent(getActivity(),sessionlist.class);
                 startActivity(i);
             }
         });
@@ -98,7 +98,7 @@ public class mycourse extends Fragment {
         cc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),session.class);
+                Intent i = new Intent(getActivity(),sessionlist.class);
                 startActivity(i);
             }
         });
