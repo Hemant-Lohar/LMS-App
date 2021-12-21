@@ -10,6 +10,7 @@
     <string name="password">Password</string>
     <string name="create">Create Account</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
     <string name="new_account">New Here ? Create Account</string>
     <string name="have_account">Already Have an Account ? Login</string>
 
