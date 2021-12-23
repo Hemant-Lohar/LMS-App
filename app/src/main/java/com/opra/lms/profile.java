@@ -3,19 +3,28 @@ package com.opra.lms;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link profile#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class profile extends Fragment {
+public class profile<addOnCompleteListener> extends Fragment {
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -66,6 +75,7 @@ public class profile extends Fragment {
         // Inflate the layout for this fragment
 
 
+
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
         Button logout=(Button)view.findViewById(R.id.btnlogout);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +85,43 @@ public class profile extends Fragment {
                 startActivity(i);
             }
         });
+//        Following code is for updating user details in profile fragment.It works, don't touch it.
+        DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document("sangramharihar@gmail.com");
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot= task.getResult();
+                    if(!documentSnapshot.exists()){
+                        Log.d("Document","No data");
+                    }else{
+                        String fname=documentSnapshot.get("first_name").toString();
+                        String lname=documentSnapshot.get("last_name").toString();
+                        String id=documentSnapshot.get("username").toString();
+                        String reg=documentSnapshot.get("course_reg").toString();
+                        String comp=documentSnapshot.get("course_comp").toString();
+                        TextView textfname = (TextView)view.findViewById(R.id.textView11);
+                        TextView textlname = (TextView)view.findViewById(R.id.textView12);
+                        TextView textid = (TextView)view.findViewById(R.id.textView10);
+                        TextView textreg = (TextView)view.findViewById(R.id.textView19);
+                        TextView textcomp = (TextView)view.findViewById(R.id.textView20);
+                        textfname.setText(fname);
+                        textlname.setText(lname);
+                        textid.setText("@"+id);
+                        textreg.setText(reg);
+                        textcomp.setText(comp);
+                    }
+                }
+                else{
+                    Log.d("Document","No data");
+                }
+            }
+        });
+
+
         return view;
+
     }
+
+
 }

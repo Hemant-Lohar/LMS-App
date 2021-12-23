@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "246106602639",
+    "project_id": "lms-app-4465c",
+    "storage_bucket": "lms-app-4465c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246106602639:android:4b0fcbedc0540e62a484fa",
+        "android_client_info": {
+          "package_name": "com.opra.lms"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246106602639-ukak6udjfdm31bm78j3bsq17risrcdpk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCVvsijV5UqsJmWqMVDYYjKJsrfCgczfI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246106602639-ukak6udjfdm31bm78j3bsq17risrcdpk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
