@@ -72,7 +72,7 @@
     <EditText
         android:id="@+id/etxt_username"
         android:layout_width="303dp"
-        android:layout_height="43dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:fontFamily="@font/poppins_regular"
         android:hint="@string/username"
@@ -86,7 +86,7 @@
     <EditText
         android:id="@+id/etxt_password"
         android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:fontFamily="@font/poppins_regular"
         android:hint="@string/password"
