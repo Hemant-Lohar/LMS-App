@@ -8,6 +8,7 @@
     <string name="subtitle_text2">from very fundamentals.</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="confpassword">Confirm Password</string>
     <string name="create">Create Account</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>

@@ -9,6 +9,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         setContentView(R.layout.activity_main);
+
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
+
+        if(fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(MainActivity.this,home.class));
+            finish();
+        }
 
 
         Button signUpButton = (Button) findViewById(R.id.btn_signup);

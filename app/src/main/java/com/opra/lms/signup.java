@@ -2,15 +2,24 @@ package com.opra.lms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class signup extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +32,64 @@ public class signup extends AppCompatActivity {
 
         Button btnSignUp = (Button) findViewById(R.id.btn_reg);
         ImageView backArrow = (ImageView) findViewById(R.id.signup_backarrow);
+        EditText fName = (EditText) findViewById(R.id.etxt_fname);
+        EditText lName = (EditText) findViewById(R.id.etxt_lname);
+        EditText regEmail = (EditText) findViewById(R.id.etxt_reg_username);
+        EditText pass = (EditText) findViewById(R.id.etxt_reg_password);
+        EditText confPass = (EditText) findViewById(R.id.etxt_reg_conf_password);
+        ProgressBar loading = (ProgressBar) findViewById(R.id.loadingbar);
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
+
+
+        if(fAuth.getCurrentUser() != null) {
+            startActivity(new Intent(signup.this,signin.class));
+            finish();
+        }
 
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(signup.this,signin.class));
+                String email = regEmail.getText().toString().trim();
+                String password = pass.getText().toString().trim();
+                String confPassword = confPass.getText().toString().trim();
+                if(TextUtils.isEmpty((email))) {
+                    regEmail.setError("Email is required");
+                    return;
+                }
+                if(password != confPassword) {
+                    Toast.makeText(signup.this, "Password Not match", Toast.LENGTH_SHORT).show();
+                }
+                if(TextUtils.isEmpty((password))) {
+                    pass.setError("Password is required");
+                    return;
+                }
+                if(pass.length() < 8) {
+                    pass.setError("Password length should be at least 8");
+                    return;
+                }
+                if(TextUtils.isEmpty((confPassword))) {
+                    confPass.setError("Confirm Password is required");
+                    return;
+                }
+                
+
+                loading.setVisibility(View.VISIBLE);
+
+                fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()) {
+                            Toast.makeText(signup.this, "Registered Successfully !", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(signup.this,signin.class));
+
+                        }else {
+                            Toast.makeText(signup.this, "Registration Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
+
             }
         });
 
@@ -39,7 +100,8 @@ public class signup extends AppCompatActivity {
             }
         });
 
-
+    }
 
     }
-}
+
+

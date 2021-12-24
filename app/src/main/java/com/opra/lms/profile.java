@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
  */
 public class profile<addOnCompleteListener> extends Fragment {
 
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,7 +83,8 @@ public class profile<addOnCompleteListener> extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),MainActivity.class);
+                fAuth.getInstance().signOut();
+                Intent i = new Intent(getActivity(),signin.class);
                 startActivity(i);
             }
         });
@@ -107,7 +110,7 @@ public class profile<addOnCompleteListener> extends Fragment {
                         TextView textcomp = (TextView)view.findViewById(R.id.textView20);
                         textfname.setText(fname);
                         textlname.setText(lname);
-                        textid.setText("@"+id);
+                        textid.setText(fAuth.getCurrentUser().getEmail());
                         textreg.setText(reg);
                         textcomp.setText(comp);
                     }
