@@ -1,6 +1,5 @@
 package com.opra.lms;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +7,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +37,11 @@ public class mycourse extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+
+    LinearLayout layout;
+    int i=0;
 
     public mycourse() {
         // Required empty public constructor
@@ -62,46 +79,19 @@ public class mycourse extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mycourse, container, false);
-        Button pyt=(Button)view.findViewById(R.id.button14);
-        pyt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),sessionlist.class);
-                startActivity(i);
-            }
-        });
-        Button ml=(Button)view.findViewById(R.id.button16);
-        ml.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),sessionlist.class);
-                startActivity(i);
-            }
-        });
-        Button ai=(Button)view.findViewById(R.id.button17);
-        ai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),sessionlist.class);
-                startActivity(i);
-            }
-        });
-        Button cs=(Button)view.findViewById(R.id.button18);
-        cs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),sessionlist.class);
-                startActivity(i);
-            }
-        });
-        Button cc=(Button)view.findViewById(R.id.button19);
-        cc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getActivity(),sessionlist.class);
-                startActivity(i);
-            }
-        });
+        //host layout initializing
+        ArrayList<String> names =new ArrayList<>();
+        names.add("Python");
+        names.add("Java");
+        names.add("C++");
+        layout=view.findViewById(R.id.layoutlist);
+        for(i=0;i< names.size();i++) {
+            final View addedview = getLayoutInflater().inflate(R.layout.course_my, null, false);
+            TextView textView=addedview.findViewById(R.id.textView15);
+            textView.setText(names.get(i));
+            layout.addView(addedview);
+        }
+
         return view;
     }
 }
