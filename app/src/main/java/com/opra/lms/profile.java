@@ -20,6 +20,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Objects;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link profile#newInstance} factory method to
@@ -86,10 +88,13 @@ public class profile<addOnCompleteListener> extends Fragment {
                 fAuth.getInstance().signOut();
                 Intent i = new Intent(getActivity(),signin.class);
                 startActivity(i);
+//                getActivity().getFragmentManager().popBackStack();
+//                getActivity().onBackPressed();
             }
         });
 //        Following code is for updating user details in profile fragment.It works, don't touch it.
-        DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document("sangramharihar@gmail.com");
+//        String id = .toString();
+        DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document(fAuth.getCurrentUser().getEmail());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -98,11 +103,11 @@ public class profile<addOnCompleteListener> extends Fragment {
                     if(!documentSnapshot.exists()){
                         Log.d("Document","No data");
                     }else{
-                        String fname=documentSnapshot.get("first_name").toString();
-                        String lname=documentSnapshot.get("last_name").toString();
-                        String id=documentSnapshot.get("username").toString();
-                        String reg=documentSnapshot.get("course_reg").toString();
-                        String comp=documentSnapshot.get("course_comp").toString();
+                        String fname= (String) documentSnapshot.get("first_name");
+                        String lname= (String) documentSnapshot.get("last_name");
+//                        String id=documentSnapshot.get("username").toString();
+                        String reg= (String) documentSnapshot.get("course_reg");
+                        String comp= (String) documentSnapshot.get("course_comp");
                         TextView textfname = (TextView)view.findViewById(R.id.textView11);
                         TextView textlname = (TextView)view.findViewById(R.id.textView12);
                         TextView textid = (TextView)view.findViewById(R.id.textView10);
