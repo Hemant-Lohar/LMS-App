@@ -2,6 +2,7 @@ package com.opra.lms;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +38,9 @@ public class signin extends AppCompatActivity {
         EditText pass = (EditText) findViewById(R.id.etxt_password);
 
 
+        final SuccessScreen successScreen = new SuccessScreen(signin.this);
+
+
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,11 +66,21 @@ public class signin extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(signin.this, "Login Successfully !", Toast.LENGTH_SHORT).show();
+
+                            successScreen.startSuccessDialog();
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    successScreen.dismissDialog();
+                                }
+                            },3000);
+
                             startActivity(new Intent(signin.this,home.class));
+
 
                         }else {
                             Toast.makeText(signin.this, "Login Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 });

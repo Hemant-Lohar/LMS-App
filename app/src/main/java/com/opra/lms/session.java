@@ -9,15 +9,26 @@ import android.provider.MediaStore;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+
 public class session extends AppCompatActivity {
     //String api="AIzaSyAua7eSpOr9Wl-JvJ6GjiK8XbCnv3-rQsk";
+    String api_key = "AIzaSyBCVvsijV5UqsJmWqMVDYYjKJsrfCgczfI";
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void
+    onCreate(@Nullable Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
-        /*YouTubePlayerView ytPlayer = (YouTubePlayerView)findViewById(R.id.ytplayer);
 
-        ytPlayer.initialize(api,
+        // Get reference to the view of Video player
+        YouTubePlayerView ytPlayer = (YouTubePlayerView)findViewById(R.id.ytPlayer);
+
+        ytPlayer.initialize(
+                api_key,
                 new YouTubePlayer.OnInitializedListener() {
                     // Implement two methods by clicking on red
                     // error bulb inside onInitializationSuccess
@@ -30,7 +41,7 @@ public class session extends AppCompatActivity {
                             YouTubePlayer.Provider provider,
                             YouTubePlayer youTubePlayer, boolean b)
                     {
-                        youTubePlayer.loadVideo("hEgO047GxaQ&t=5s");
+                        youTubePlayer.loadVideo("HzeK7g8cD0Y");
                         youTubePlayer.play();
                     }
 
@@ -44,8 +55,6 @@ public class session extends AppCompatActivity {
                     {
                         Toast.makeText(getApplicationContext(), "Video player Failed", Toast.LENGTH_SHORT).show();
                     }
-                });*/
-
-
+                });
     }
 }

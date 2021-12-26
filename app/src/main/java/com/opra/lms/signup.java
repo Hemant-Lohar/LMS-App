@@ -94,23 +94,6 @@ public class signup extends AppCompatActivity {
                 user.put("course_reg", "");
 
 
-
-//                db.collection("User").document(email).add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                    @Override
-//                    public void onSuccess(DocumentReference documentReference) {
-//
-//                        Log.d("Document", "Info Registered" + documentReference.getId());
-//                    }
-//                })
-//
-//
-//                        .addOnFailureListener(new OnFailureListener() {
-//                            @Override
-//                            public void onFailure(@NonNull Exception e) {
-//                                Log.w("Document", "Error adding document", e);
-//                            }
-//                        });
-
                 db.collection("User").document(email)
                         .set(user)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -127,13 +110,13 @@ public class signup extends AppCompatActivity {
                         });
 
 
-                loading.setVisibility(View.VISIBLE);
-
                 fAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+//                        loading.setVisibility(View.VISIBLE);
                         if(task.isSuccessful()) {
                             Toast.makeText(signup.this, "Registered Successfully !", Toast.LENGTH_SHORT).show();
+//                            loading.setVisibility(View.GONE);
                             startActivity(new Intent(signup.this,signin.class));
 
                         }else {

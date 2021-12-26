@@ -88,12 +88,11 @@ public class profile<addOnCompleteListener> extends Fragment {
                 fAuth.getInstance().signOut();
                 Intent i = new Intent(getActivity(),signin.class);
                 startActivity(i);
-//                getActivity().getFragmentManager().popBackStack();
-//                getActivity().onBackPressed();
+                getActivity().finish();
             }
         });
 //        Following code is for updating user details in profile fragment.It works, don't touch it.
-//        String id = .toString();
+
         DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document(fAuth.getCurrentUser().getEmail());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
