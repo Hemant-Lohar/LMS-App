@@ -3,6 +3,7 @@ package com.opra.lms;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
 
 public class session extends AppCompatActivity {
@@ -29,6 +33,8 @@ public class session extends AppCompatActivity {
         Intent i=getIntent();
         String id=i.getStringExtra("id");
         Log.d("Document", id);
+        YouTubePlayerView youTubePlayerView = findViewById(R.id.youtubeplayer);
+        getLifecycle().addObserver(youTubePlayerView);
 
         DocumentReference docRef = FirebaseFirestore.getInstance().collection("session").document(id);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -39,10 +45,18 @@ public class session extends AppCompatActivity {
                     if(!documentSnapshot.exists()){
                         Log.d("Document","No data");
                     }else{
-                        String link= (String) documentSnapshot.get("link");
-                        String title= (String) documentSnapshot.get("title");
-                        String desc=(String) documentSnapshot.get("description");
-                        String course=(String) documentSnapshot.get("course");
+
+                        TextView title=findViewById(R.id.textView3);
+                        title.setText(documentSnapshot.getId());
+
+                        youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
+                            @Override
+                            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                                String video = documentSnapshot.get("link").toString();
+                                Log.d("Document",video);
+                                youTubePlayer.loadVideo(video, 0);
+                            }
+                        });
 
 
 
