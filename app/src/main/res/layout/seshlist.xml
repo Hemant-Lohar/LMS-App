@@ -2,61 +2,42 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/courseblock"
+    android:id="@+id/sessionblock"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_marginVertical="10dp">
-
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/outer"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:gravity="center"
+        android:text="TextView"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/c_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Coursename"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/outer"
-        app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.074"
-        app:layout_constraintStart_toStartOf="@+id/outer"
-        app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.133" />
-
-    <TextView
-        android:id="@+id/num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3 hrs"
-        app:layout_constraintBottom_toBottomOf="@+id/outer"
-        app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="@+id/outer"
-        app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.868" />
-
     <Button
-        android:id="@+id/btn_enroll"
+        android:id="@+id/btn_attend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:text="Continue"
+        android:text="attend"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
-        app:layout_constraintEnd_toEndOf="@id/outer"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="@+id/outer"
+        app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="@+id/outer"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.557" />
+        app:layout_constraintVertical_bias="0.727" />
 
+    <CheckBox
+        android:id="@+id/checkdone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/outer"
+        app:layout_constraintEnd_toEndOf="@+id/outer"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toStartOf="@+id/outer"
+        app:layout_constraintTop_toTopOf="@+id/outer"
+        app:layout_constraintVertical_bias="0.318" />
 </androidx.constraintlayout.widget.ConstraintLayout>

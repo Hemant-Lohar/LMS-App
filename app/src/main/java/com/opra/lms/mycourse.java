@@ -1,25 +1,26 @@
 package com.opra.lms;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 
 /**
@@ -28,6 +29,7 @@ import java.util.Arrays;
  * create an instance of this fragment.
  */
 public class mycourse extends Fragment {
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,10 +40,10 @@ public class mycourse extends Fragment {
     private String mParam1;
     private String mParam2;
 
-
-
+    //following 3 lines by 007. don't touch it
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
     LinearLayout layout;
-    int i=0;
+    int i;
 
     public mycourse() {
         // Required empty public constructor
@@ -79,18 +81,52 @@ public class mycourse extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mycourse, container, false);
-        //host layout initializing
-        ArrayList<String> names =new ArrayList<>();
-        names.add("Python");
-        names.add("Java");
-        names.add("C++");
-        layout=view.findViewById(R.id.layoutlist);
-        for(i=0;i< names.size();i++) {
-            final View addedview = getLayoutInflater().inflate(R.layout.course_my, null, false);
-            TextView textView=addedview.findViewById(R.id.textView15);
-            textView.setText(names.get(i));
-            layout.addView(addedview);
-        }
+        layout=view.findViewById(R.id.layout_mycourse);
+        FirebaseFirestore.getInstance().collection("course")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                ArrayList<String>user =new ArrayList<>();
+                                Log.d("Document", document.getId());
+                                user = (ArrayList<String>) document.get("user");
+                                String current_user=fAuth.getCurrentUser().getEmail().toString();
+                                Log.d("Document", current_user);
+                                Log.d("Document", user.toString());
+                                if(user.contains(current_user)){
+                                    final View addedview = getLayoutInflater().inflate(R.layout.course_my, null, false);
+                                    TextView name=addedview.findViewById(R.id.c_name);
+                                    TextView num=addedview.findViewById(R.id.num);
+                                    Button button=(Button)addedview.findViewById(R.id.btn_enroll);
+                                    name.setText(document.getId());
+                                    num.setText(document.get("num_session").toString()+"hrs");
+                                    button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent x=new Intent(getActivity(), sessionlist.class);
+                                            x.putExtra("COURSE",document.getId());
+                                            startActivity(x);
+                                        }
+                                    });
+                                    layout.addView(addedview);
+                                }
+
+                            }
+                        } else {
+                            Log.d("Document", task.getException().toString());
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
 
         return view;
     }

@@ -1,15 +1,28 @@
 package com.opra.lms;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +39,11 @@ public class explore extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    //following 3 lines by 007. don't touch it
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
+    LinearLayout layout;
+    int i;
+
 
     public explore() {
         // Required empty public constructor
@@ -63,88 +81,59 @@ public class explore extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_explore, container, false);
-        Button enroll1=(Button)view.findViewById(R.id.button22);
-        Button enroll2=(Button)view.findViewById(R.id.button23);
-        Button enroll3=(Button)view.findViewById(R.id.button24);
-        Button enroll4=(Button)view.findViewById(R.id.button25);
-        Button enroll5=(Button)view.findViewById(R.id.button26);
-        Button enroll6=(Button)view.findViewById(R.id.button27);
-        Button enroll7=(Button)view.findViewById(R.id.button28);
-        Button enroll8=(Button)view.findViewById(R.id.button29);
-        Button enroll9=(Button)view.findViewById(R.id.button30);
+        layout=view.findViewById(R.id.layout_explore);
+        FirebaseFirestore.getInstance().collection("course")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                ArrayList<String> user =new ArrayList<>();
+                                Log.d("Document", document.getId());
+                                user = (ArrayList<String>) document.get("user");
+                                String current_user=fAuth.getCurrentUser().getEmail().toString();
+                                Log.d("Document", current_user);
+                                Log.d("Document", user.toString());
+                                if(!user.contains(current_user)){
+                                    final View addedview = getLayoutInflater().inflate(R.layout.tab_explore, null, false);
+                                    TextView name=addedview.findViewById(R.id.c_name);
+                                    TextView num=addedview.findViewById(R.id.num);
+                                    TextView desc=addedview.findViewById(R.id.desc);
+                                    TextView tags=addedview.findViewById(R.id.tags);
+                                    Button button=(Button)addedview.findViewById(R.id.btn_enroll);
+                                    name.setText(document.getId());
+                                    num.setText(document.get("num_session").toString()+"hrs");
+                                    desc.setText(document.get("course_desc").toString());
+                                    tags.setText("tags:"+document.get("tags").toString());
+                                    button.setText("Enroll");
+                                    TextView cost=addedview.findViewById(R.id.cost);
+                                    if(document.get("paid").toString()=="true"){
+                                        cost.setText("Price:₹"+document.get("cost").toString());
+                                    }
+                                    else{
+                                        cost.setText("Free!!");
+                                    }
+                                    button.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            DocumentReference thiscourse = FirebaseFirestore.getInstance().collection("course").document(document.getId());
+                                            if(document.get("paid").toString()=="true"){
+                                                Toast.makeText(getActivity(), "paid!!", Toast.LENGTH_SHORT).show();
+                                            }
+                                            thiscourse.update("user", FieldValue.arrayUnion(current_user));
+                                            Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    layout.addView(addedview);
+                                }
 
-
-
-
-        enroll1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-        enroll9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Toast.makeText(getActivity(),"Registered !",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-
-
-
+                            }
+                        } else {
+                            Log.d("Document", task.getException().toString());
+                        }
+                    }
+                });
         return view;
     }
 }

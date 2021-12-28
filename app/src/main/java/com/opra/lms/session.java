@@ -1,60 +1,58 @@
 package com.opra.lms;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.app.ProgressDialog;
-import android.media.MediaPlayer;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.widget.Toast;
-import androidx.annotation.Nullable;
+import android.util.Log;
 
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 
 public class session extends AppCompatActivity {
     //String api="AIzaSyAua7eSpOr9Wl-JvJ6GjiK8XbCnv3-rQsk";
-    String api_key = "AIzaSyBCVvsijV5UqsJmWqMVDYYjKJsrfCgczfI";
+   // String api_key = "AIzaSyBCVvsijV5UqsJmWqMVDYYjKJsrfCgczfI";
+    FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
     @Override
-    protected void
-    onCreate(@Nullable Bundle savedInstanceState)
+    protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_session);
+        Intent i=getIntent();
+        String id=i.getStringExtra("id");
+        Log.d("Document", id);
 
-        // Get reference to the view of Video player
-        YouTubePlayerView ytPlayer = (YouTubePlayerView)findViewById(R.id.ytPlayer);
+        DocumentReference docRef = FirebaseFirestore.getInstance().collection("session").document(id);
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if(task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot= task.getResult();
+                    if(!documentSnapshot.exists()){
+                        Log.d("Document","No data");
+                    }else{
+                        String link= (String) documentSnapshot.get("link");
+                        String title= (String) documentSnapshot.get("title");
+                        String desc=(String) documentSnapshot.get("description");
+                        String course=(String) documentSnapshot.get("course");
 
-        ytPlayer.initialize(
-                api_key,
-                new YouTubePlayer.OnInitializedListener() {
-                    // Implement two methods by clicking on red
-                    // error bulb inside onInitializationSuccess
-                    // method add the video link or the playlist
-                    // link that you want to play In here we
-                    // also handle the play and pause
-                    // functionality
-                    @Override
-                    public void onInitializationSuccess(
-                            YouTubePlayer.Provider provider,
-                            YouTubePlayer youTubePlayer, boolean b)
-                    {
-                        youTubePlayer.loadVideo("HzeK7g8cD0Y");
-                        youTubePlayer.play();
+
+
+
                     }
-
-                    // Inside onInitializationFailure
-                    // implement the failure functionality
-                    // Here we will show toast
-                    @Override
-                    public void onInitializationFailure(YouTubePlayer.Provider provider,
-                                                        YouTubeInitializationResult
-                                                                youTubeInitializationResult)
-                    {
-                        Toast.makeText(getApplicationContext(), "Video player Failed", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                }
+                else{
+                    Log.d("Document","No data");
+                }
+            }
+        });
     }
 }

@@ -2,10 +2,6 @@ package com.opra.lms;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,14 +9,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -104,9 +101,9 @@ public class profile<addOnCompleteListener> extends Fragment {
                     }else{
                         String fname= (String) documentSnapshot.get("first_name");
                         String lname= (String) documentSnapshot.get("last_name");
-//                        String id=documentSnapshot.get("username").toString();
-                        String reg= (String) documentSnapshot.get("course_reg");
-                        String comp= (String) documentSnapshot.get("course_comp");
+                        String id=fAuth.getCurrentUser().getEmail();
+                        Long reg= (Long) documentSnapshot.get("course_reg");
+                        Long comp= (Long) documentSnapshot.get("course_comp");
                         TextView textfname = (TextView)view.findViewById(R.id.textView11);
                         TextView textlname = (TextView)view.findViewById(R.id.textView12);
                         TextView textid = (TextView)view.findViewById(R.id.textView10);
@@ -114,9 +111,12 @@ public class profile<addOnCompleteListener> extends Fragment {
                         TextView textcomp = (TextView)view.findViewById(R.id.textView20);
                         textfname.setText(fname);
                         textlname.setText(lname);
-                        textid.setText(fAuth.getCurrentUser().getEmail());
-                        textreg.setText(reg);
-                        textcomp.setText(comp);
+                        textid.setText(id);
+                        textreg.setText(reg.toString());
+                        textcomp.setText(comp.toString());
+
+
+
                     }
                 }
                 else{
