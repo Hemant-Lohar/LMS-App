@@ -1,5 +1,6 @@
 package com.opra.lms;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -119,7 +120,10 @@ public class explore extends Fragment {
                                         public void onClick(View v) {
                                             DocumentReference thiscourse = FirebaseFirestore.getInstance().collection("course").document(document.getId());
                                             if(document.get("paid").toString()=="true"){
-                                                Toast.makeText(getActivity(), "paid!!", Toast.LENGTH_SHORT).show();
+                                                Intent pay=new Intent(getActivity(),payment.class);
+                                                pay.putExtra("cost",document.get("cost").toString());
+                                                pay.putExtra("name",document.getId());
+                                                startActivity(pay);
                                             }
                                             thiscourse.update("user", FieldValue.arrayUnion(current_user));
                                             Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();

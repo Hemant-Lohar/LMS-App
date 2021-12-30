@@ -26,8 +26,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 
 
 public class session extends AppCompatActivity {
-    //String api="AIzaSyAua7eSpOr9Wl-JvJ6GjiK8XbCnv3-rQsk";
-   // String api_key = "AIzaSyBCVvsijV5UqsJmWqMVDYYjKJsrfCgczfI";
+
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -81,8 +80,7 @@ public class session extends AppCompatActivity {
                                 String next=  documentSnapshot.get("next").toString();
                                 Log.d("Document",next);
                                 if("null".contains(next)){
-                                    Toast.makeText(session.this,"Congratulations!!", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(session.this,"You have completed last session of"+documentSnapshot.get("course")+"!!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(session.this,"You have completed last session of "+documentSnapshot.get("course")+"!!", Toast.LENGTH_SHORT).show();
                                 }else{
                                     Intent i = new Intent(session.this,session.class);
                                     i.putExtra("id",next);
