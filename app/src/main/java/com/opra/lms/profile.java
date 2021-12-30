@@ -102,8 +102,23 @@ public class profile<addOnCompleteListener> extends Fragment {
                         String fname= (String) documentSnapshot.get("first_name");
                         String lname= (String) documentSnapshot.get("last_name");
                         String id=fAuth.getCurrentUser().getEmail();
-                        Long reg= (Long) documentSnapshot.get("course_reg");
-                        Long comp= (Long) documentSnapshot.get("course_comp");
+                        String reg="";
+                        String comp="";
+                        if(documentSnapshot.get("course_reg")==null || documentSnapshot.get("course_com")==null){
+                            if(documentSnapshot.get("course_reg")==null){
+                                reg="0";
+                            }
+                            if(documentSnapshot.get("course_com")==null){
+                                comp="0";
+                            }
+                        }
+                        else
+                        {
+                            reg =documentSnapshot.get("course_reg").toString();
+                            comp =documentSnapshot.get("course_com").toString();
+                        }
+                        Log.d("Document","Reg:"+reg.toString());
+                        Log.d("Document","comp:"+comp.toString());
                         TextView textfname = view.findViewById(R.id.textView11);
                         TextView textlname = view.findViewById(R.id.textView12);
                         TextView textid = view.findViewById(R.id.textView10);
@@ -112,8 +127,8 @@ public class profile<addOnCompleteListener> extends Fragment {
                         textfname.setText(fname);
                         textlname.setText(lname);
                         textid.setText(id);
-                        textreg.setText(reg.toString());
-                        textcomp.setText(comp.toString());
+                        textreg.setText(reg);
+                        textcomp.setText(comp);
 
 
 
