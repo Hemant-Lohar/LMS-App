@@ -78,7 +78,7 @@ public class profile<addOnCompleteListener> extends Fragment {
 
 
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
-        Button logout=(Button)view.findViewById(R.id.btnlogout);
+        Button logout=view.findViewById(R.id.btnlogout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -104,11 +104,11 @@ public class profile<addOnCompleteListener> extends Fragment {
                         String id=fAuth.getCurrentUser().getEmail();
                         Long reg= (Long) documentSnapshot.get("course_reg");
                         Long comp= (Long) documentSnapshot.get("course_comp");
-                        TextView textfname = (TextView)view.findViewById(R.id.textView11);
-                        TextView textlname = (TextView)view.findViewById(R.id.textView12);
-                        TextView textid = (TextView)view.findViewById(R.id.textView10);
-                        TextView textreg = (TextView)view.findViewById(R.id.textView19);
-                        TextView textcomp = (TextView)view.findViewById(R.id.textView20);
+                        TextView textfname = view.findViewById(R.id.textView11);
+                        TextView textlname = view.findViewById(R.id.textView12);
+                        TextView textid = view.findViewById(R.id.textView10);
+                        TextView textreg =view.findViewById(R.id.textView19);
+                        TextView textcomp = view.findViewById(R.id.textView20);
                         textfname.setText(fname);
                         textlname.setText(lname);
                         textid.setText(id);

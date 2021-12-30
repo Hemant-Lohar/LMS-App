@@ -20,12 +20,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class signup extends AppCompatActivity {
 
@@ -90,8 +88,8 @@ public class signup extends AppCompatActivity {
                 Map<String, Object> user = new HashMap<>();
                 user.put("first_name", f_name);
                 user.put("last_name", l_name);
-                user.put("course_com", "");
-                user.put("course_reg", "");
+                user.put("course_com", 0);
+                user.put("course_reg", 0);
 
 
                 db.collection("User").document(email)
