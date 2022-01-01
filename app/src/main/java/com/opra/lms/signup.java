@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,6 +46,7 @@ public class signup extends AppCompatActivity {
         EditText pass = (EditText) findViewById(R.id.etxt_reg_password);
         EditText confPass = (EditText) findViewById(R.id.etxt_reg_conf_password);
         ProgressBar loading = (ProgressBar) findViewById(R.id.loadingbar);
+        TextView account = (TextView) findViewById(R.id.txt_account);
 
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -69,7 +71,7 @@ public class signup extends AppCompatActivity {
                     regEmail.setError("Email is required");
                     return;
                 }
-                if(password != confPassword) {
+                if(password.equals(confPassword)) {
                     Toast.makeText(signup.this, "Password Not match", Toast.LENGTH_SHORT).show();
                 }
                 if(TextUtils.isEmpty((password))) {
@@ -116,6 +118,7 @@ public class signup extends AppCompatActivity {
                             Toast.makeText(signup.this, "Registered Successfully !", Toast.LENGTH_SHORT).show();
 //                            loading.setVisibility(View.GONE);
                             startActivity(new Intent(signup.this,signin.class));
+                            finish();
 
                         }else {
                             Toast.makeText(signup.this, "Registration Error !" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
@@ -133,6 +136,15 @@ public class signup extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(signup.this,MainActivity.class));
+                finish();
+            }
+        });
+
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(signup.this, signin.class));
+                finish();
             }
         });
 

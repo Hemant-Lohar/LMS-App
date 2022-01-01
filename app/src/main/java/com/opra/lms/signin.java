@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,6 +37,7 @@ public class signin extends AppCompatActivity {
 
         EditText username = (EditText) findViewById(R.id.etxt_username);
         EditText pass = (EditText) findViewById(R.id.etxt_password);
+        TextView account = (TextView) findViewById(R.id.txt_account);
 
 
         final SuccessScreen successScreen = new SuccessScreen(signin.this);
@@ -92,6 +94,14 @@ public class signin extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(signin.this,MainActivity.class));
+            }
+        });
+
+        account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(signin.this, signup.class));
+                finish();
             }
         });
 

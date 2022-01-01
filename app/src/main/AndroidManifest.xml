@@ -14,30 +14,34 @@
         <activity
             android:name=".payment"
             android:exported="false" />
-        <activity
-            android:name=".SplashScreen"
-            android:exported="true"
-            android:theme="@style/splashScreen">
+        <activity android:name=".SplashScreen" android:theme="@style/splashScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".sessionlist"
             android:exported="false" />
         <activity
             android:name=".session"
-            android:exported="true"></activity>
-        <activity
+            android:exported="true" >
+
+    </activity>
+
+    <activity
             android:name=".home"
             android:exported="false" />
-        <activity android:name=".signin" />
-        <activity android:name=".signup" />
+        <activity android:name=".signin"/>
+        <activity android:name=".signup"/>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
     </application>
 
 </manifest>

@@ -33,6 +33,8 @@ import java.util.ArrayList;
  */
 public class explore extends Fragment {
 
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -84,6 +86,8 @@ public class explore extends Fragment {
         // Inflate the layout for this fragment
         View view =inflater.inflate(R.layout.fragment_explore, container, false);
         layout=view.findViewById(R.id.layout_explore);
+
+
         FirebaseFirestore.getInstance().collection("course")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

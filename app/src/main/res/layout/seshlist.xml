@@ -8,21 +8,25 @@
 
     <TextView
         android:id="@+id/outer"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_width="350dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="TextView"
-        android:textSize="25sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView10"
+        />
 
     <Button
         android:id="@+id/btn_attend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="attend"
+        android:text="Attend"
+        android:textAllCaps="false"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
         app:layout_constraintHorizontal_bias="0.949"
@@ -32,12 +36,25 @@
 
     <CheckBox
         android:id="@+id/checkdone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="29dp"
+        android:layout_height="23dp"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="@+id/outer"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.318" />
+        app:layout_constraintVertical_bias="0.488" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="354dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/img_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/slideimg2"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

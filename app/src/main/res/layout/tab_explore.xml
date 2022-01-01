@@ -6,45 +6,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginVertical="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <TextView
         android:id="@+id/outer"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_width="366dp"
+        android:layout_height="303dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/round"
         android:gravity="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="367dp"
+        android:layout_height="141dp"
+        android:background="@drawable/img_bg"
+        app:layout_constraintEnd_toEndOf="@+id/outer"
+        app:layout_constraintStart_toStartOf="@+id/outer"
+        app:layout_constraintTop_toTopOf="@+id/outer"
+        app:srcCompat="@drawable/slideimg3" />
 
     <TextView
         android:id="@+id/cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintHorizontal_bias="0.911"
         app:layout_constraintStart_toStartOf="@+id/outer"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.93" />
-
-    <TextView
-        android:id="@+id/tags"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tags"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="@+id/outer"
-        app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.041"
-        app:layout_constraintStart_toStartOf="@+id/outer"
-        app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintVertical_bias="0.559" />
 
     <Button
         android:id="@+id/btn_enroll"
@@ -52,11 +52,38 @@
         android:layout_height="wrap_content"
         android:text="Enroll"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
-        app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="@+id/outer"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.311" />
+        app:layout_constraintVertical_bias="0.936" />
+
+    <TextView
+        android:id="@+id/desc"
+        android:layout_width="228dp"
+        android:layout_height="34dp"
+        android:text="Course description"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/outer"
+        app:layout_constraintEnd_toEndOf="@+id/outer"
+        app:layout_constraintHorizontal_bias="0.113"
+        app:layout_constraintStart_toStartOf="@+id/outer"
+        app:layout_constraintTop_toBottomOf="@+id/num"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <TextView
+        android:id="@+id/tags"
+        android:layout_width="229dp"
+        android:layout_height="19dp"
+        android:text="tags"
+        android:textSize="12sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@+id/outer"
+        app:layout_constraintEnd_toEndOf="@+id/outer"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="@+id/outer"
+        app:layout_constraintTop_toBottomOf="@+id/desc"
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
         android:id="@+id/c_name"
@@ -64,14 +91,14 @@
         android:layout_height="wrap_content"
         android:text="Coursename"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.453"
+        app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="@+id/outer"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.08" />
+        app:layout_constraintVertical_bias="0.574" />
 
     <TextView
         android:id="@+id/num"
@@ -80,22 +107,11 @@
         android:text="3 hrs"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="@+id/outer"
-        app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintTop_toBottomOf="@+id/c_name"
+        app:layout_constraintVertical_bias="0.123" />
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Course description"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/outer"
-        app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="@+id/outer"
-        app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.513" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

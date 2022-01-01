@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/secondary100">
 
     <ImageView
         android:id="@+id/imageView6"
@@ -71,4 +72,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.753"
         app:srcCompat="@drawable/ic_baseline_done_24" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class profile<addOnCompleteListener> extends Fragment {
 
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
+//    ShimmerFrameLayout shimmerFrameLayout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,6 +80,8 @@ public class profile<addOnCompleteListener> extends Fragment {
 
 
         View view= inflater.inflate(R.layout.fragment_profile, container, false);
+        ShimmerFrameLayout layout = view.findViewById(R.id.shimmer);
+        layout.startShimmer();
         Button logout=view.findViewById(R.id.btnlogout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +93,7 @@ public class profile<addOnCompleteListener> extends Fragment {
             }
         });
 //        Following code is for updating user details in profile fragment.It works, don't touch it.
+
 
         DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document(fAuth.getCurrentUser().getEmail());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -117,18 +122,24 @@ public class profile<addOnCompleteListener> extends Fragment {
                             reg =documentSnapshot.get("course_reg").toString();
                             comp =documentSnapshot.get("course_com").toString();
                         }
+
                         Log.d("Document","Reg:"+reg.toString());
                         Log.d("Document","comp:"+comp.toString());
-                        TextView textfname = view.findViewById(R.id.textView11);
-                        TextView textlname = view.findViewById(R.id.textView12);
-                        TextView textid = view.findViewById(R.id.textView10);
-                        TextView textreg =view.findViewById(R.id.textView19);
-                        TextView textcomp = view.findViewById(R.id.textView20);
+                        TextView textfname = view.findViewById(R.id.textView9);
+                        TextView textlname = view.findViewById(R.id.textView10);
+                        TextView textid = view.findViewById(R.id.textv1);
+                        TextView textreg =view.findViewById(R.id.textView13);
+                        TextView textcomp = view.findViewById(R.id.textView19);
                         textfname.setText(fname);
                         textlname.setText(lname);
                         textid.setText(id);
                         textreg.setText(reg);
                         textcomp.setText(comp);
+
+                        layout.stopShimmer();
+                        layout.setVisibility(View.GONE);
+
+
 
 
 

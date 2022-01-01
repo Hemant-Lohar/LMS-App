@@ -25,6 +25,8 @@ public class home extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        getSupportActionBar().hide();
         //Following code is for bottomnavigation UI working! It works, so don't touch it.
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnav);
         NavHostFragment navHostFragment = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
