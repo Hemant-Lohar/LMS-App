@@ -129,27 +129,33 @@ public class explore extends Fragment {
                                                 pay.putExtra("cost",document.get("cost").toString());
                                                 pay.putExtra("name",document.getId());
                                                 startActivity(pay);
-                                            }
-                                            thiscourse.update("user", FieldValue.arrayUnion(current_user));
-                                            DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document(current_user);
-                                            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                                    if (task.isSuccessful()) {
-                                                        DocumentSnapshot document = task.getResult();
-                                                        if (document.exists()) {
-                                                            Log.d( "Document","DocumentSnapshot data: " + document.getData());
-                                                            long reg= (long) document.get("course_reg");
-                                                            docRef.update("course_reg",reg+1);
+//                                                thiscourse.update("user", FieldValue.arrayUnion(current_user));
+//                                                Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+
+                                            }else{
+                                                thiscourse.update("user", FieldValue.arrayUnion(current_user));
+                                                DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document(current_user);
+                                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                        if (task.isSuccessful()) {
+                                                            DocumentSnapshot document = task.getResult();
+                                                            if (document.exists()) {
+                                                                Log.d( "Document","DocumentSnapshot data: " + document.getData());
+                                                                long reg= (long) document.get("course_reg");
+                                                                docRef.update("course_reg",reg+1);
+                                                            } else {
+                                                                Log.d("Document", "No such document");
+                                                            }
                                                         } else {
-                                                            Log.d("Document", "No such document");
+                                                            Log.d("Document", "get failed with ", task.getException());
                                                         }
-                                                    } else {
-                                                        Log.d("Document", "get failed with ", task.getException());
                                                     }
-                                                }
-                                            });
-                                            Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+                                                });
+                                                Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+
+                                            }
+
                                         }
                                     });
                                     layout.addView(addedview);
