@@ -11,8 +11,8 @@
 
     <TextView
         android:id="@+id/outer"
-        android:layout_width="366dp"
-        android:layout_height="90dp"
+        android:layout_width="368dp"
+        android:layout_height="99dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/round"
         android:gravity="center"
@@ -32,10 +32,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.156"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.405" />
+        app:layout_constraintVertical_bias="0.319" />
 
     <TextView
         android:id="@+id/num"
@@ -46,10 +46,10 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
-        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toEndOf="@+id/imageView9"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.671" />
+        app:layout_constraintVertical_bias="0.564" />
 
     <Button
         android:id="@+id/btn_enroll"
@@ -64,12 +64,12 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/outer"
         app:layout_constraintTop_toTopOf="@+id/outer"
-        app:layout_constraintVertical_bias="0.78" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="130dp"
-        android:layout_height="89dp"
+        android:layout_width="129dp"
+        android:layout_height="99dp"
         android:background="@drawable/img_bg"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintStart_toStartOf="@+id/outer"

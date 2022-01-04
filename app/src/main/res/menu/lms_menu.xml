@@ -5,14 +5,14 @@
     <item
         android:id="@+id/mycourse"
         android:title="Mycourses"
-        android:icon="@drawable/ic_mycourse"/>
+        android:icon="@drawable/home"/>
     <item
         android:id="@+id/explore"
         android:title="Explore"
-        android:icon="@drawable/ic_explore"/>
+        android:icon="@drawable/explore"/>
     <item
         android:id="@+id/profile"
         android:title="Profile"
-        android:icon="@drawable/ic_profile"
+        android:icon="@drawable/user"
         />
 </menu>

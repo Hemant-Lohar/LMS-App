@@ -49,13 +49,12 @@
         android:id="@+id/txt_create"
         android:layout_width="333dp"
         android:layout_height="42dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/create"
         android:textColor="@color/black"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SmallSp" />
@@ -67,10 +66,10 @@
         android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/txt_create"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271"
+        app:layout_constraintVertical_bias="0.469"
         app:srcCompat="@drawable/backarrow1" />
 
     <Button
@@ -81,18 +80,18 @@
         android:text="Create Account"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textbox_password2"
-        app:layout_constraintVertical_bias="0.231" />
+        app:layout_constraintVertical_bias="0.122" />
 
     <ImageView
         android:id="@+id/textbox_username"
         android:layout_width="338dp"
         android:layout_height="50dp"
-        android:layout_marginTop="336dp"
+        android:layout_marginTop="304dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/textbox" />
@@ -125,8 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_reg"
-        app:layout_constraintVertical_bias="0.207"
-        />
+        app:layout_constraintVertical_bias="0.108" />
 
     <ImageView
         android:id="@+id/imageView3"

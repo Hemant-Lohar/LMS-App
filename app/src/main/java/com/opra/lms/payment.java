@@ -65,8 +65,8 @@ public class payment extends AppCompatActivity implements PaymentResultListener 
             JSONObject options = new JSONObject();
 
             options.put("name", "LMS");
-            options.put("description", "Complete Payment to Rigistor");
-            options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
+            options.put("description", "Complete Payment to Register");
+            options.put("image", "https://firebasestorage.googleapis.com/v0/b/lms-app-4465c.appspot.com/o/applogo.png?alt=media&token=51ab9ad3-ec73-4fc1-aeb1-986431d6dbe3");
 //                options.put("order_id", "order_DBJOWzybf0sJbb");//from response of step 3.
             options.put("theme.color", "#3399cc");
             options.put("currency", "INR");

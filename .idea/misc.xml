@@ -3,6 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Opra/Backup/app/src/main/res/drawable/custom_button_2.xml" value="0.14635416666666667" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/activity_home.xml" value="0.13020833333333334" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/activity_main.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/activity_session.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/activity_sessionlist.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/activity_signin.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/activity_signup.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/course_my.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/fragment_explore.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/fragment_mycourse.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/fragment_profile.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/layout/seshlist.xml" value="0.2418478260869565" />
+        <entry key="..\:/Opra/Backup/app/src/main/res/menu/lms_menu.xml" value="0.13020833333333334" />
         <entry key="..\:/Opra/Project/app/src/main/res/drawable/background_splashscreen.xml" value="0.16799999999999998" />
         <entry key="..\:/Opra/Project/app/src/main/res/drawable/custom_button_2.xml" value="0.2703125" />
         <entry key="..\:/Opra/Project/app/src/main/res/drawable/ic_baseline_done_24.xml" value="0.17533783783783785" />
