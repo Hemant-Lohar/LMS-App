@@ -36,8 +36,8 @@
 
     <CheckBox
         android:id="@+id/checkdone"
-        android:layout_width="29dp"
-        android:layout_height="23dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="@+id/outer"
         app:layout_constraintEnd_toEndOf="@+id/outer"
         app:layout_constraintHorizontal_bias="0.086"
