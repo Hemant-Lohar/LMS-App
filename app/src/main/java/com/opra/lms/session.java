@@ -3,10 +3,7 @@ package com.opra.lms;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -52,7 +49,6 @@ public class session extends AppCompatActivity {
 
                         TextView title=findViewById(R.id.textView3);
                         TextView desc=findViewById(R.id.textView4);
-                        Button btn_next=(Button)findViewById(R.id.btn_next);
                         title.setText(documentSnapshot.get("title").toString());
                         desc.setText(documentSnapshot.get("description").toString());
                         youTubePlayerView.addYouTubePlayerListener(new AbstractYouTubePlayerListener() {
@@ -74,21 +70,7 @@ public class session extends AppCompatActivity {
                                 }
                             }
                         });
-                        btn_next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                String next=  documentSnapshot.get("next").toString();
-                                Log.d("Document",next);
-                                if("null".contains(next)){
-                                    Toast.makeText(session.this,"You have completed last session of "+documentSnapshot.get("course")+"!!", Toast.LENGTH_SHORT).show();
-                                }else{
-                                    Intent i = new Intent(session.this,session.class);
-                                    i.putExtra("id",next);
-                                    startActivity(i);
-                                }
 
-                            }
-                        });
 
 
 
