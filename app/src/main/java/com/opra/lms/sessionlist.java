@@ -88,5 +88,12 @@ public class sessionlist extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onRestart()
+    {
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+    }
 
 }

@@ -11,17 +11,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.youtube.player.internal.s;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.razorpay.Checkout;
-import com.razorpay.PaymentResultListener;
 
 import org.json.JSONObject;
 
-public class payment extends AppCompatActivity implements PaymentResultListener {
+public class payment extends AppCompatActivity {
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
     @Override
@@ -85,7 +83,7 @@ public class payment extends AppCompatActivity implements PaymentResultListener 
         }
     }
 
-    @Override
+
     public void onPaymentSuccess(String s) {
         String current_user=fAuth.getCurrentUser().getEmail();
 
@@ -97,7 +95,7 @@ public class payment extends AppCompatActivity implements PaymentResultListener 
         payment.this.finish();
     }
 
-    @Override
+
     public void onPaymentError(int i, String s) {
         Toast.makeText(payment.this,"Payment Failed !", Toast.LENGTH_SHORT).show();
 

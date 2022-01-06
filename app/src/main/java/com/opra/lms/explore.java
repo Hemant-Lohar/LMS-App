@@ -129,10 +129,13 @@ public class explore extends Fragment {
                                                 pay.putExtra("cost",document.get("cost").toString());
                                                 pay.putExtra("name",document.getId());
                                                 startActivity(pay);
-//                                                thiscourse.update("user", FieldValue.arrayUnion(current_user));
-//                                                Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+/*
+                                              thiscourse.update("user", FieldValue.arrayUnion(current_user));
+                                              Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+*/
 
-                                            }else{
+                                            }
+                                            else{
                                                 thiscourse.update("user", FieldValue.arrayUnion(current_user));
                                                 DocumentReference docRef = FirebaseFirestore.getInstance().collection("User").document(current_user);
                                                 docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -155,6 +158,8 @@ public class explore extends Fragment {
                                                 Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
 
                                             }
+                                            startActivity(new Intent(getActivity(),home.class));
+
 
                                         }
                                     });
