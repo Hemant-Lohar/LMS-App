@@ -71,8 +71,9 @@ public class signup extends AppCompatActivity {
                     regEmail.setError("Email is required");
                     return;
                 }
-                if(password.equals(confPassword)) {
+                if(!password.equals(confPassword)) {
                     Toast.makeText(signup.this, "Password Not match", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 if(TextUtils.isEmpty((password))) {
                     pass.setError("Password is required");
