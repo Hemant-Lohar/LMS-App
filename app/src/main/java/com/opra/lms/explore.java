@@ -156,9 +156,9 @@ public class explore extends Fragment {
                                                     }
                                                 });
                                                 Toast.makeText(getActivity(), "Registered!!", Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(getActivity(),home.class));
 
                                             }
-                                            startActivity(new Intent(getActivity(),home.class));
 
 
                                         }
